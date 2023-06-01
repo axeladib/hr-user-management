@@ -1,7 +1,7 @@
 # HR Simple User Management Admin Portal
 #### **Manage your workforce attendance anywhere**
 
-![User guide](file:///C:/Users/nabil/github/SoloreenVentureProject/hr-simple-user-management/public/Figma/Login_Page_HR_Theme.png "Preview Login Page")
+![User guide](/public/Figma/Login_Page_HR_Theme.png "Preview Login Page")
 
 ### User guide to using this .md and create documentation
 This is the link guide to md file usage [MD User Guide](https://www.markdownguide.org/basic-syntax)
