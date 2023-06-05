@@ -1,27 +1,37 @@
-module.exports = (sequelize, Sequelize) => {
-	const User = sequelize.define("user", {
-		name: {
-			type: Sequelize.STRING,
-		},
-		overallAttendance: {
-			type: Sequelize.STRING,
-		},
-		latecomers: {
-			type: Sequelize.INTEGER,
-		},
-		emergencyLeave: {
-			type: Sequelize.INTEGER,
-		},
-		outsideWork: {
-			type: Sequelize.INTEGER,
-		},
-		sickLeave: {
-			type: Sequelize.INTEGER,
-		},
-		annualLeave: {
-			type: Sequelize.INTEGER,
-		},
-	});
+const User = (sequelize,Sequelize,DataTypes) => sequelize.define('user',{
+    username:{
+        type: DataTypes.STRING(10),
+        allowNull: false,
+        unique: true,
+        validate: {
+            len: [5,10],
+            isAlphanumeric: true            
+        }
+    },
+    //setter for hashed password
+    password: {
+        type: DataTypes.STRING(12),
+        allowNull: false,
+        validate: {
+            len: {
+                args: [6,12],
+                msg: 'password length minimum is 6 and maximum is 12'
+            },
+            // is: /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{6,})/ //regex            
+        },
+        // set(value){
+        //     this.setDataValue('password', hash(value));
+        // }
 
-	return User;
-};
+    },
+    email: {
+        type: DataTypes.STRING(25),
+        allowNull: false,
+        unique: true,
+        validate: {
+            isEmail: true,
+        }
+    }
+});
+
+module.exports = User;
